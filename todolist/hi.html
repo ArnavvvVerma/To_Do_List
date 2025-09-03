@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>To-Do List</h1>
+
+    <section class="add-area">
+      <input id="taskInput" type="text" placeholder="What needs to be done?" autocomplete="off" />
+      <button id="addBtn">Add</button>
+    </section>
+
+    <section class="controls">
+      <div class="filters">
+        <button data-filter="all" class="filter-btn active">All</button>
+        <button data-filter="active" class="filter-btn">Active</button>
+        <button data-filter="completed" class="filter-btn">Completed</button>
+      </div>
+      <div class="actions">
+        <button id="clearCompletedBtn">Clear completed</button>
+        <button id="exportBtn">Export</button>
+        <input id="importInput" type="file" accept="application/json" style="display:none"/>
+        <button id="importBtn">Import</button>
+      </div>
+    </section>
+
+    <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+    <section class="footer">
+      <span id="itemsLeft">0 items left</span>
+      <small>Drag to reorder</small>
+    </section>
+  </main>
+
+  <template id="taskTemplate">
+    <li class="task-item" draggable="true">
+      <label class="check">
+        <input type="checkbox" class="toggle-done" />
+        <span class="custom-checkbox"></span>
+      </label>
+      <div class="title" contenteditable="false" aria-label="Task title"></div>
+      <div class="task-actions">
+        <button class="edit-btn" title="Edit">✎</button>
+        <button class="delete-btn" title="Delete">🗑</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
